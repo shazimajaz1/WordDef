@@ -16,8 +16,6 @@ public class NetworkUtility {
         Class Constants
      */
     private static final String LOG_TAG = "Result Of the String";
-    private static final String QUERY_PARAM = "";
-    private static final String MAX_RESULTS = "maxResults";
     private static final String API_KEY = "f8d10a1d-be40-45a8-acca-2f432bb387ac";
 
 
