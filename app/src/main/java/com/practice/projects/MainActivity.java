@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        boolean isConnected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
+        final boolean isConnected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
 
         //Check the connection to the server using Network Utils class
         Thread thread = new Thread(new Runnable() {
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                boolean isServerReplying = NetworkUtility.checkConnection();
                 //Only start the search activity if the internet is connected.
                 Intent searchIntent;
-                if (isServerReplying) {
+                if (isServerReplying && isConnected) {
                     //Start the activity
                     searchIntent = new Intent(MainActivity.this, SearchScreenActivity.class);
                     startActivity(searchIntent);
