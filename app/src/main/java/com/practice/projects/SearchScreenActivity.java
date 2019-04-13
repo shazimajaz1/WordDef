@@ -104,7 +104,6 @@ public class SearchScreenActivity extends AppCompatActivity {
             shortDef = formatString(shortDef);
             textView.setText(shortDef);
 
-            System.out.print("");
 
 
 
