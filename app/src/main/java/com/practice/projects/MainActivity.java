@@ -6,7 +6,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.practice.projects.api_setup.NetworkUtility;
 
 /*
     This app uses the Webster Dictionary API to search for Definition.
@@ -44,26 +47,38 @@ public class MainActivity extends AppCompatActivity {
         //shows the user an error message and tells the user steps
         //to fix the issue.
 
+
         //Check the connection using connection manager.
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         boolean isConnected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
 
-        //Only start the search activity if the internet is connected.
-        Intent searchIntent;
+        //Check the connection to the server using Network Utils class
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-        if (isConnected) {
-            //Start the activity
-            searchIntent = new Intent(this, SearchScreenActivity.class);
-            startActivity(searchIntent);
-        } else {
-            //Let the user know that there is a problem with the connection
-            TextView noConnectionTextDisplay = findViewById(R.id.no_connection_text_view);
-            noConnectionTextDisplay.setText(getString(R.string.connection_error));
+               boolean isServerReplying = NetworkUtility.checkConnection();
+                //Only start the search activity if the internet is connected.
+                Intent searchIntent;
+                if (isServerReplying) {
+                    //Start the activity
+                    searchIntent = new Intent(MainActivity.this, SearchScreenActivity.class);
+                    startActivity(searchIntent);
+                } else {
+                    //Let the user know that there is a problem with the connection
+                    TextView noConnectionTextDisplay = findViewById(R.id.no_connection_text_view);
+                    noConnectionTextDisplay.setText(getString(R.string.connection_error));
+
+                }
+            }
+        });
+
+        thread.start();
 
 
-        }
+
 
     }
 }
