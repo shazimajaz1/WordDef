@@ -4,4 +4,5 @@
     <string name="app_logo_image_description">Logo Image</string>
     <string name="search_hint">Type your Word/Phrase Here</string>
     <string name="btn_search_txt">Search</string>
+    <string name="connection_error">There is a problem with your Internet connection!</string>
 </resources>

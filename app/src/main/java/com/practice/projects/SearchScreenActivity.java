@@ -27,7 +27,6 @@ public class SearchScreenActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,32 +67,34 @@ public class SearchScreenActivity extends AppCompatActivity {
         searchThread.start();
 
 
-
     }
-    /*
 
+    /*
+        This method uses NetworkUtility class to find the result for the
+        query string. It can be further modified to get more information about the
+        QUERY string.
      */
-    public String getWordsResultsThroughNetwork(String queryString){
+    public String getWordsResultsThroughNetwork(String queryString) {
         //Get the resulted string
         String result = NetworkUtility.getWordResults(queryString);
-        try{
+        try {
 
             JSONArray jsonArray = new JSONArray(result); //parsing the result through json.
 
             //Loop through the json array to get the short definition of the query
             int index = 0;
-            String shortDef =null;
+            String shortDef = null;
 
-            while(index < jsonArray.length() && shortDef == null){
+            while (index < jsonArray.length() && shortDef == null) {
                 JSONObject defObject = jsonArray.getJSONObject(index);
 
                 //Try to get the short def from the current items
-               try{
+                try {
                     shortDef = defObject.getString("shortdef");
-               }catch (Exception e) {
-                   e.printStackTrace();
-               }
-               //Move to the next item in the array
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Move to the next item in the array
                 index++;
             }
 
@@ -105,9 +106,7 @@ public class SearchScreenActivity extends AppCompatActivity {
             textView.setText(shortDef);
 
 
-
-
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -121,7 +120,7 @@ public class SearchScreenActivity extends AppCompatActivity {
         formatter needed in this case. It must be improved before
         the app is published.
      */
-    private String formatString(String shortDef){
+    private String formatString(String shortDef) {
 
         //Get rid of side braces
         shortDef = shortDef.substring(2, shortDef.length() - 2);

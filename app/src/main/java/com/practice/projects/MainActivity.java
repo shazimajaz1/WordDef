@@ -1,8 +1,12 @@
 package com.practice.projects;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 /*
     This app uses the Webster Dictionary API to search for Definition.
@@ -17,9 +21,9 @@ import android.os.Bundle;
     bar. The app does not load until the connection has been setup properly
  */
 public class MainActivity extends AppCompatActivity {
+
     /*
         Field Variables
-
      */
 
 
@@ -40,12 +44,26 @@ public class MainActivity extends AppCompatActivity {
         //shows the user an error message and tells the user steps
         //to fix the issue.
 
-        //Check the connection
+        //Check the connection using connection manager.
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        boolean isConnected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
+
+        //Only start the search activity if the internet is connected.
+        Intent searchIntent;
+
+        if (isConnected) {
+            //Start the activity
+            searchIntent = new Intent(this, SearchScreenActivity.class);
+            startActivity(searchIntent);
+        } else {
+            //Let the user know that there is a problem with the connection
+            TextView noConnectionTextDisplay = findViewById(R.id.no_connection_text_view);
+            noConnectionTextDisplay.setText(getString(R.string.connection_error));
 
 
-        //Start the activity
-        Intent intent = new Intent(this, SearchScreenActivity.class);
-        startActivity(intent);
+        }
 
     }
 }
