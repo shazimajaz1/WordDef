@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".QueryResultActivity"></activity>
+        <activity android:name=".QueryResultActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".SearchScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

@@ -1,5 +1,6 @@
 package com.practice.projects;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,11 @@ public class SearchScreenActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
 
+    /*
+        Member constants
+     */
+    public static final String RESULT_IN_EXTRAS = "short_def_extra_string";
+    public static final String QUERY_IN_EXTRAS = "query_extra_string";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +80,7 @@ public class SearchScreenActivity extends AppCompatActivity {
         query string. It can be further modified to get more information about the
         QUERY string.
      */
-    public String getWordsResultsThroughNetwork(String queryString) {
+    public void getWordsResultsThroughNetwork(String queryString) {
         //Get the resulted string
         String result = NetworkUtility.getWordResults(queryString);
         try {
@@ -98,20 +104,26 @@ public class SearchScreenActivity extends AppCompatActivity {
                 index++;
             }
 
-            //At this point update the UI with appropriate message
-            TextView textView = findViewById(R.id.text_view_search_screen);
+
+
+           /* //At this point update the UI with appropriate message
+            TextView textView = findViewById(R.id.text_view_search_screen);*/
 
             //Format the resulting string
             shortDef = formatString(shortDef);
-            textView.setText(shortDef);
+
+            /*textView.setText(shortDef);*/
+
+            //pass the data to the query result activity.
+            Intent resultIntent = new Intent(this, QueryResultActivity.class);
+            resultIntent.putExtra(RESULT_IN_EXTRAS, shortDef);
+            resultIntent.putExtra(QUERY_IN_EXTRAS, queryString);
+            startActivity(resultIntent);
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //fix later
-        return null;
     }
 
     /*

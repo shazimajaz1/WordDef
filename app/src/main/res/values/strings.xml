@@ -5,4 +5,5 @@
     <string name="search_hint">Type your Word/Phrase Here</string>
     <string name="btn_search_txt">Search</string>
     <string name="connection_error">There is a problem with your Internet connection!</string>
+    <string name="result_title">Showing results for:</string>
 </resources>
