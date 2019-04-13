@@ -116,7 +116,7 @@ public class NetworkUtility {
             //Open the connection and set GET as the request method
             testConnection = (HttpURLConnection) url.openConnection();
             testConnection.setRequestMethod("GET");
-            testConnection.setConnectTimeout(10);
+            testConnection.setConnectTimeout(100);
             testConnection.connect();
 
             return true; //at this point the connection has been established

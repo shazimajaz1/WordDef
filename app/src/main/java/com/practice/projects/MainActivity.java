@@ -66,10 +66,14 @@ public class MainActivity extends AppCompatActivity {
                     //Start the activity
                     searchIntent = new Intent(MainActivity.this, SearchScreenActivity.class);
                     startActivity(searchIntent);
+
+                    //Get rid of this activity
+                    finish();
                 } else {
                     //Let the user know that there is a problem with the connection
                     TextView noConnectionTextDisplay = findViewById(R.id.no_connection_text_view);
                     noConnectionTextDisplay.setText(getString(R.string.connection_error));
+
 
                 }
             }
