@@ -2,12 +2,10 @@ package com.practice.projects;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import org.w3c.dom.Text;
+import android.widget.TextView;
 
 /*
     The result of the query is displayed in this activity.
@@ -42,6 +40,8 @@ public class QueryResultActivity extends AppCompatActivity {
         titleTextView.append(" ");
         titleTextView.append(queryString);
         TextView shortDefText = findViewById(R.id.result_text_view);
+        shortDefText.setBackgroundColor(Color.LTGRAY);
+        shortDefText.setTextColor(Color.BLACK);
         shortDefText.setText(shortDef);
 
     }

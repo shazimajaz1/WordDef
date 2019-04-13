@@ -27,12 +27,16 @@
             android:layout_height="wrap_content"
             android:text="@string/result_title" />
 
+
         <TextView
             android:id="@+id/result_text_view"
             style="@style/Base.TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:padding="10dp"/>
+
+
 
 
     </LinearLayout>
