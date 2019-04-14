@@ -107,7 +107,7 @@ public class NetworkUtility {
         The goal is to only test the connection. If there is a connection, then return
         true, else return false.
      */
-    public static boolean checkConnection(){
+    public static boolean checkConnection() {
         HttpURLConnection testConnection = null;
         try {
 
@@ -119,14 +119,14 @@ public class NetworkUtility {
             testConnection.setConnectTimeout(100);
             testConnection.connect();
 
+            //Close the connection
+            testConnection.disconnect();
             return true; //at this point the connection has been established
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false; //establishing the connection failed
         }
     }
-
-
 
 
 }

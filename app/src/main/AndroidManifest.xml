@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".QueryResultActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:parentActivityName=".SearchScreenActivity"></activity>
         <activity
             android:name=".SearchScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

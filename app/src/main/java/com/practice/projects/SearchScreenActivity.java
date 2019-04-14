@@ -135,9 +135,24 @@ public class SearchScreenActivity extends AppCompatActivity {
     private String formatString(String shortDef) {
 
         //Get rid of side braces
-        shortDef = shortDef.substring(2, shortDef.length() - 2);
+        shortDef = shortDef.substring(2, shortDef.length() - 1);
 
-
-        return shortDef;
+        //If there are more than one definitions, put them on their
+        //own lines
+        StringBuilder builder = new StringBuilder();
+        int size = shortDef.length();
+        int outterIndex = 0;
+        while (outterIndex < shortDef.length()) {
+            int index = outterIndex;
+            while (shortDef.charAt(index) != '"') {
+                index++;
+            }
+            char lowerToUpper = Character.toUpperCase(shortDef.charAt(outterIndex));
+            builder.append(lowerToUpper);
+            builder.append(shortDef.substring(outterIndex + 1, index));
+            builder.append("\n");
+            outterIndex = index + 1;
+        }
+        return builder.toString();
     }
 }
