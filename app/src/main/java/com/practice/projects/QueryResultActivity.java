@@ -109,8 +109,8 @@ public class QueryResultActivity extends AppCompatActivity {
     }
 
     /*
-                This method is invoked when the user wants to save the result to a file
-             */
+         This method is invoked when the user wants to save the result to a file
+     */
     public void saveToFile(View view) {
 
     }
