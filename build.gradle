@@ -25,3 +25,10 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//Version numbers for roomVersion and archLifecycleVersion
+//This code is necessary for some implementation statements to sync in the app gradle file
+ext{
+    roomVersion = '1.1.1'
+    archLifecycleVersion ='1.1.1'
+}
