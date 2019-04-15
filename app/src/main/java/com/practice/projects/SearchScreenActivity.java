@@ -2,16 +2,12 @@ package com.practice.projects;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.EditText;
 
 import com.practice.projects.api_setup.NetworkUtility;
 
@@ -46,9 +42,8 @@ public class SearchScreenActivity extends AppCompatActivity {
         toolbar.setBackgroundColor(Color.DKGRAY);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Search your word!");
-        setSupportActionBar(toolbar);
 
-        //Setup the recycler view with recycler view adapter
+        setSupportActionBar(toolbar);
 
 
     }
@@ -132,6 +127,8 @@ public class SearchScreenActivity extends AppCompatActivity {
         formatter needed in this case. It must be improved before
         the app is published.
      */
+
+    @org.jetbrains.annotations.NotNull
     private String formatString(String shortDef) {
 
         //Get rid of side braces
