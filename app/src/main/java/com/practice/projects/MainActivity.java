@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ProgressBar;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.practice.projects.api_setup.NetworkUtility;
@@ -25,16 +24,6 @@ import com.practice.projects.api_setup.NetworkUtility;
  */
 public class MainActivity extends AppCompatActivity {
 
-    /*
-        Field Variables
-     */
-
-
-    /*
-        Class Constants
-     */
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         //If the network does not work, simply go the screen that
         //shows the user an error message and tells the user steps
         //to fix the issue.
-
 
         //Check the connection using connection manager.
         ConnectivityManager connectivityManager =
@@ -73,16 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     //Let the user know that there is a problem with the connection
                     TextView noConnectionTextDisplay = findViewById(R.id.no_connection_text_view);
                     noConnectionTextDisplay.setText(getString(R.string.connection_error));
-
-
                 }
             }
         });
-
         thread.start();
-
-
-
-
     }
 }
