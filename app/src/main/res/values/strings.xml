@@ -6,4 +6,8 @@
     <string name="btn_search_txt">Search</string>
     <string name="connection_error">There is a problem with your Internet connection!</string>
     <string name="result_title">Showing results for:</string>
+    <string name="btn_txt_copy">Copy</string>
+    <string name="btn_txt_save">Save</string>
+    <string name="btn_txt_save_to_file">Save to File</string>
+    <string name="btn_txt_copy_to_clipboard">Copy to CLIPBOARD</string>
 </resources>

@@ -1,11 +1,15 @@
 package com.practice.projects;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /*
     The result of the query is displayed in this activity.
@@ -16,6 +20,10 @@ import android.widget.TextView;
  */
 public class QueryResultActivity extends AppCompatActivity {
 
+    /*
+        Class Constants
+     */
+    public static final String CLIP_TEXT_KEY = QueryResultActivity.class.getSimpleName() + "_CLIP_TEXT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +51,32 @@ public class QueryResultActivity extends AppCompatActivity {
         shortDefText.setBackgroundColor(Color.LTGRAY);
         shortDefText.setTextColor(Color.BLACK);
         shortDefText.setText(shortDef);
+
+    }
+
+    /*
+        This method is invoked when the user wants to save the result to a file
+     */
+    public void saveToFile(View view) {
+
+    }
+
+    /*
+        This method is invoked when the user wants to copy the text to clipboard.
+     */
+    public void copyToClipboard(View view) {
+        //Get the text from the text view
+        TextView resultTextView = findViewById(R.id.result_text_view);
+        String resultText = resultTextView.getText().toString();
+
+        //Copy the Text to the clipboard
+        ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData dataClip = ClipData.newPlainText(CLIP_TEXT_KEY, resultText);
+        clipboardManager.setPrimaryClip(dataClip);
+
+        //Tell the user that the text has been copied to the clipboard
+        Toast.makeText(this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+
 
     }
 }
