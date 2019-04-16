@@ -1,7 +1,9 @@
-package com.practice.projects;
+package com.practice.projects.save_list;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.practice.projects.R;
 
 public class SaveList extends AppCompatActivity {
 

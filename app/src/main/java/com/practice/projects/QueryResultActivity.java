@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.practice.projects.save_list.SaveList;
+
 /*
     The result of the query is displayed in this activity.
     It also allows the user to change the text size of the result display.
