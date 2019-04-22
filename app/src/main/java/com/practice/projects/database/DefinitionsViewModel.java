@@ -34,7 +34,7 @@ public class DefinitionsViewModel extends AndroidViewModel {
         implementation and hides the details from the client class that tries to access the data from
         the repository
      */
-    LiveData<List<Definitions>> getAllDefinitions() {
+    public LiveData<List<Definitions>> getAllDefinitions() {
         return allDefinitions;
     }
 

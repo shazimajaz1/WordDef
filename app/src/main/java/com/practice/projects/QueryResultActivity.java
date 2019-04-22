@@ -1,11 +1,14 @@
 package com.practice.projects;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +16,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.practice.projects.database.Definitions;
+import com.practice.projects.database.DefinitionsViewModel;
 import com.practice.projects.save_list.SaveList;
+import com.practice.projects.save_list.SaveListAdapter;
 
 /*
     The result of the query is displayed in this activity.
@@ -28,6 +34,13 @@ public class QueryResultActivity extends AppCompatActivity {
         Class Constants
      */
     public static final String CLIP_TEXT_KEY = QueryResultActivity.class.getSimpleName() + "_CLIP_TEXT";
+
+    /*
+        Class variables
+
+     */
+    private String shortDef;
+    private String queryString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +57,8 @@ public class QueryResultActivity extends AppCompatActivity {
 
         //Get the user intent
         Intent intent = getIntent();
-        String shortDef = intent.getStringExtra(SearchScreenActivity.RESULT_IN_EXTRAS);
-        String queryString = intent.getStringExtra(SearchScreenActivity.QUERY_IN_EXTRAS);
+        shortDef = intent.getStringExtra(SearchScreenActivity.RESULT_IN_EXTRAS);
+        queryString = intent.getStringExtra(SearchScreenActivity.QUERY_IN_EXTRAS);
 
 
         //Display it in the text views
@@ -56,6 +69,9 @@ public class QueryResultActivity extends AppCompatActivity {
         shortDefText.setBackgroundColor(Color.LTGRAY);
         shortDefText.setTextColor(Color.BLACK);
         shortDefText.setText(shortDef);
+
+
+
 
     }
 
@@ -112,8 +128,25 @@ public class QueryResultActivity extends AppCompatActivity {
 
     /*
          This method is invoked when the user wants to save the result to a file
+         This is a premature implementation where the app crashes if the values already exist in the
+         list.
      */
     public void saveToFile(View view) {
+        //Insert the word into the Database
+        try {
+            //Insert the word and definition into the database
+            DefinitionsViewModel dvm = ViewModelProviders.of(this).get(DefinitionsViewModel.class);
+            dvm.insert(new Definitions(queryString, shortDef));
+
+            //Let the user know the operation was successful
+            Toast.makeText(this, getString(R.string.saveSuccessMessage), Toast.LENGTH_SHORT).show();
+        } catch(Exception e) {
+            e.printStackTrace();
+            //Let the user know that the operation failed.
+            Toast.makeText(this, getString(R.string.saveFailedMessage), Toast.LENGTH_SHORT);
+
+
+        }
 
     }
 
