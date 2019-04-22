@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".save_list.SaveList"
+            android:parentActivityName=".QueryResultActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".SettingsActivity"

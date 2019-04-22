@@ -1,5 +1,7 @@
 package com.practice.projects.save_list;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.practice.projects.R;
 import com.practice.projects.database.Definitions;
@@ -20,6 +23,11 @@ public class SaveListAdapter extends RecyclerView.Adapter<SaveListAdapter.SaveLi
      */
     private final LayoutInflater layoutInflater;
     private List<Definitions> definitionsList;
+
+    /*
+        Class Constants
+     */
+    public static final String CLIP_TEXT_KEY = SaveListAdapter.class.getSimpleName() + "_CLIP_DATA";
 
     /*
         Default Constructor: Inflates the layout based on teh provided context
@@ -78,7 +86,7 @@ public class SaveListAdapter extends RecyclerView.Adapter<SaveListAdapter.SaveLi
         The object of this class then servers as an individual view in a recycler view.
         A recycler view may consist of none to many view holders.
      */
-    class SaveListViewHolder extends RecyclerView.ViewHolder {
+    class SaveListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         /*
             Field variables and class constants
          */
@@ -93,7 +101,33 @@ public class SaveListAdapter extends RecyclerView.Adapter<SaveListAdapter.SaveLi
             super(itemView);
             saveListItemQueryText = itemView.findViewById(R.id.recycler_view_list_item_query);
             saveListItemResultText = itemView.findViewById(R.id.recycler_view_list_item_result);
+            itemView.setOnClickListener(this);
 
+        }
+
+        /*
+            This method is invoked when the user clicks an item in the save list.
+            This method extracts query and the result string
+            Then copies the result to the clipboard.
+         */
+        @Override
+        public void onClick(View v) {
+            //Get the position
+            int positionOfItemClicked = getLayoutPosition();
+
+            //Get the data at that position
+            String queryString = definitionsList.get(positionOfItemClicked).getDefinitionsString();
+            String definitionsString = definitionsList.get(positionOfItemClicked).getQueryString();
+
+            //Copy the String to the clipboard
+            ClipboardManager clipboardManager =
+                    (ClipboardManager) v.getContext().
+                            getSystemService(v.getContext().CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText(CLIP_TEXT_KEY, queryString + "\n" + definitionsString);
+            clipboardManager.setPrimaryClip(clipData);
+
+            //Let the user know that the string has been copied to the clipboard.
+            Toast.makeText(v.getContext(), "Copied to Clipboard!", Toast.LENGTH_SHORT).show();
         }
     }
 }

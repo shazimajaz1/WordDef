@@ -39,6 +39,7 @@ public class SaveList extends AppCompatActivity {
         toolbar.setTitle("Save History:");
         toolbar.setBackgroundColor(Color.DKGRAY);
         toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_back);
         setSupportActionBar(toolbar);
 
         //Set the recycler view
