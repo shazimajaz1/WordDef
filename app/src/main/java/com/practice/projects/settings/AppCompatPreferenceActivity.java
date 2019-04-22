@@ -1,4 +1,4 @@
-package com.practice.projects;
+package com.practice.projects.settings;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

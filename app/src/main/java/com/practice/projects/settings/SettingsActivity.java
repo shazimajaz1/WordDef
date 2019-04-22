@@ -1,4 +1,4 @@
-package com.practice.projects;
+package com.practice.projects.settings;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.preference.RingtonePreference;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
+
+import com.practice.projects.R;
 
 import java.util.List;
 

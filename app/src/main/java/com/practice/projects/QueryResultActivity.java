@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +17,7 @@ import android.widget.Toast;
 import com.practice.projects.database.Definitions;
 import com.practice.projects.database.DefinitionsViewModel;
 import com.practice.projects.save_list.SaveList;
-import com.practice.projects.save_list.SaveListAdapter;
+import com.practice.projects.settings.SettingsActivity;
 
 /*
     The result of the query is displayed in this activity.
