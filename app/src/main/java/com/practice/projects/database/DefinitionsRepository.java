@@ -3,7 +3,6 @@ package com.practice.projects.database;
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
-import android.provider.ContactsContract;
 
 import java.util.List;
 
@@ -33,6 +32,7 @@ public class DefinitionsRepository {
     LiveData<List<Definitions>> getAllDefinitions(){
         return definitions;
     }
+
 
     /*
         This method servers as a wrapper for insert command

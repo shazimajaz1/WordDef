@@ -39,6 +39,11 @@ public class DefinitionsViewModel extends AndroidViewModel {
     }
 
     /*
+        Getter 2: Returns the data as a list not as a live data.
+     */
+
+
+    /*
         Setter 1: Inserts the given definition into the database
         This adds the layer on top the repository.
         @parameter: Definition

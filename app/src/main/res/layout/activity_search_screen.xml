@@ -17,29 +17,37 @@
 
     </android.support.v7.widget.Toolbar>
 
+
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        style="@style/edit_and_view_style"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:hint="@string/search_hint"
-        app:layout_constraintBaseline_toBaselineOf="@+id/querySearchButton"
-        app:layout_constraintEnd_toStartOf="@+id/querySearchButton"
-        app:layout_constraintStart_toStartOf="parent"
         android:inputType="text"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchScreenToolbar" />
 
     <Button
         android:id="@+id/querySearchButton"
+        style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:onClick="searchQuery"
         android:text="@string/btn_search_txt"
         android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchScreenToolbar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
 
 </android.support.constraint.ConstraintLayout>

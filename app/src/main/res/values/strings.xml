@@ -87,4 +87,9 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="saveSuccessMessage">Saved!</string>
     <string name="saveFailedMessage">Already Saved!</string>
+    <string name="btn_search_screen_text">Search Screen</string>
+    <string name="btn_save_list_text">Save List</string>
+    <string name="btn_create_pdf_text">Create PDF from Save List</string>
+    <string name="btn_show_pdf_list_text">Show Saved PDFs</string>
+    <string name="btn_save_to_pdf">Save As PDF</string>
 </resources>

@@ -39,6 +39,7 @@ public class QueryResultActivity extends AppCompatActivity {
      */
     private String shortDef;
     private String queryString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +65,7 @@ public class QueryResultActivity extends AppCompatActivity {
         titleTextView.append(" ");
         titleTextView.append(queryString);
         TextView shortDefText = findViewById(R.id.result_text_view);
-        shortDefText.setBackgroundColor(Color.LTGRAY);
-        shortDefText.setTextColor(Color.BLACK);
         shortDefText.setText(shortDef);
-
-
-
 
     }
 
@@ -138,7 +134,7 @@ public class QueryResultActivity extends AppCompatActivity {
 
             //Let the user know the operation was successful
             Toast.makeText(this, getString(R.string.saveSuccessMessage), Toast.LENGTH_SHORT).show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             //Let the user know that the operation failed.
             Toast.makeText(this, getString(R.string.saveFailedMessage), Toast.LENGTH_SHORT);

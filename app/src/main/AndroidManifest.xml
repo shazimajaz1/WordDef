@@ -12,20 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectionActivity"></activity>
+
+        <activity
+            android:name=".SelectionActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".save_list.SaveList"
-            android:parentActivityName=".QueryResultActivity"
+            android:parentActivityName=".SelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".settings.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".SelectionActivity" />
         <activity
             android:name=".QueryResultActivity"
             android:parentActivityName=".SearchScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".SearchScreenActivity"
+            android:parentActivityName=".SelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".MainActivity"

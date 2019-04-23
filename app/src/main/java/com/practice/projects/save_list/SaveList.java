@@ -14,6 +14,8 @@ import com.practice.projects.R;
 import com.practice.projects.database.Definitions;
 import com.practice.projects.database.DefinitionsViewModel;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.List;
 
 /*
@@ -57,8 +59,29 @@ public class SaveList extends AppCompatActivity {
             public void onChanged(@Nullable List<Definitions> definitions) {
                 //Update the words
                 adapter.setDefinitions(definitions);
+                //Also write the definitions to a file to be used by CreatePDFActivity
+                writeToFile(definitions);
             }
         });
 
+    }
+
+    private void writeToFile(List<Definitions> definitions) {
+        try {
+            FileWriter fileWriter = new FileWriter(new File("currentList.txt"));
+
+            int listSize = definitions.size();
+            //Write it to the file
+            while (listSize > 0) {
+                String line = definitions.get(listSize).getQueryString() + "\n" + definitions.get(listSize).getDefinitionsString();
+                fileWriter.write(line + "\n");
+                listSize--;
+            }
+
+
+            fileWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

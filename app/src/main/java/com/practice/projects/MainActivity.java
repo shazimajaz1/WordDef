@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent searchIntent;
                 if (isServerReplying && isConnected) {
                     //Start the activity
-                    searchIntent = new Intent(MainActivity.this, SearchScreenActivity.class);
+                    searchIntent = new Intent(MainActivity.this, SelectionActivity.class);
                     startActivity(searchIntent);
 
                     //Get rid of this activity

@@ -50,6 +50,11 @@ public interface DatabaseAccessObject {
     LiveData<List<Definitions>> getAllDefinitions();
 
 
+    /*
+        Returns the definition in the form of a list.
+     */
+
+
 
 
 

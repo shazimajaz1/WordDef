@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
@@ -21,8 +20,6 @@ public class SearchScreenActivity extends AppCompatActivity {
      */
     private EditText queryStringEditText;
     private Toolbar toolbar;
-    private RecyclerView recyclerView;
-
     /*
         Member constants
      */
@@ -42,7 +39,7 @@ public class SearchScreenActivity extends AppCompatActivity {
         toolbar.setBackgroundColor(Color.DKGRAY);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Search your word!");
-
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_back);
         setSupportActionBar(toolbar);
 
 
