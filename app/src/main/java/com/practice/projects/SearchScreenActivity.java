@@ -31,12 +31,14 @@ public class SearchScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_screen);
 
+        //Set the background with image
+        this.getWindow().setBackgroundDrawableResource(R.drawable.selection_screen_background);
         //Setup the view
         queryStringEditText = findViewById(R.id.searchBar);
 
         //Set up the toolbar
         toolbar = findViewById(R.id.searchScreenToolbar);
-        toolbar.setBackgroundColor(Color.DKGRAY);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Search your word!");
         toolbar.setNavigationIcon(R.drawable.ic_navigation_back);

@@ -25,10 +25,6 @@ import java.util.List;
  */
 
 public class SaveList extends AppCompatActivity {
-    /*
-        Class and Field variables
-     */
-    private DefinitionsViewModel dvm;
     private SaveListAdapter adapter;
 
     @Override
@@ -36,10 +32,12 @@ public class SaveList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_list);
 
+        //Set the screen background to same as the main screen
+        this.getWindow().setBackgroundDrawableResource(R.drawable.selection_screen_background);
         //Setup the toolbar
         Toolbar toolbar = findViewById(R.id.save_list_activity_toolbar);
         toolbar.setTitle("Save History:");
-        toolbar.setBackgroundColor(Color.DKGRAY);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.ic_navigation_back);
         setSupportActionBar(toolbar);
@@ -53,7 +51,10 @@ public class SaveList extends AppCompatActivity {
         //Retrieve the data from the database.
         //Since the data is wrapped in the live view, it is being updated using
         //an observer as necessary.
-        dvm = ViewModelProviders.of(this).get(DefinitionsViewModel.class);
+        /*
+        Class and Field variables
+     */
+        DefinitionsViewModel dvm = ViewModelProviders.of(this).get(DefinitionsViewModel.class);
         dvm.getAllDefinitions().observe(this, new Observer<List<Definitions>>() {
             @Override
             public void onChanged(@Nullable List<Definitions> definitions) {

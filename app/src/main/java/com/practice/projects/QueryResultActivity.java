@@ -45,10 +45,12 @@ public class QueryResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_result);
 
+        //Change the background to same as first screen
+        this.getWindow().setBackgroundDrawableResource(R.drawable.selection_screen_background);
         //Setup the toolbar
         Toolbar toolbar = findViewById(R.id.resultScreenToolbar);
         toolbar.setTitle("Search Results");
-        toolbar.setBackgroundColor(Color.DKGRAY);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.ic_navigation_back);
         setSupportActionBar(toolbar);

@@ -24,11 +24,13 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
+        //Set the new Background
+        this.getWindow().setBackgroundDrawable(getDrawable(R.drawable.selection_screen_background));
         //Setup the toolbar
         Toolbar toolbar = findViewById(R.id.selection_screen_toolbar);
-        toolbar.setTitle("Select Your Action!");
+        toolbar.setTitle("");
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setBackgroundColor(Color.DKGRAY);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
         setSupportActionBar(toolbar);
     }
 
