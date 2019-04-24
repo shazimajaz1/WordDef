@@ -1,4 +1,4 @@
-package com.practice.projects.save_list;
+package com.practice.projects.adapters;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -67,7 +67,7 @@ public class SaveListAdapter extends RecyclerView.Adapter<SaveListAdapter.SaveLi
     /*
         This allows the functionality of changing the data set as a whole
      */
-    void setDefinitions(List<Definitions> definitions) {
+    public void setDefinitions(List<Definitions> definitions) {
         definitionsList = definitions;
         notifyDataSetChanged();
     }
@@ -128,6 +128,8 @@ public class SaveListAdapter extends RecyclerView.Adapter<SaveListAdapter.SaveLi
 
             //Let the user know that the string has been copied to the clipboard.
             Toast.makeText(v.getContext(), "Copied to Clipboard!", Toast.LENGTH_SHORT).show();
+
+
         }
     }
 }

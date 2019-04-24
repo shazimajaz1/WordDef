@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".QueryResultActivity">
+    tools:context=".activities.QueryResultActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/resultScreenToolbar"
@@ -16,7 +16,7 @@
         android:layout_height="618dp"
         android:orientation="vertical"
         android:padding="10dp"
-        tools:context=".QueryResultActivity">
+        tools:context=".activities.QueryResultActivity">
 
 
         <TextView

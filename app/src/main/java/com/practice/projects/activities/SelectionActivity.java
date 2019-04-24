@@ -1,4 +1,4 @@
-package com.practice.projects;
+package com.practice.projects.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.practice.projects.save_list.SaveList;
+import com.practice.projects.R;
 import com.practice.projects.settings.SettingsActivity;
 
 /*

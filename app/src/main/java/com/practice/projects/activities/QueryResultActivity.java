@@ -1,4 +1,4 @@
-package com.practice.projects;
+package com.practice.projects.activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.ClipData;
@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.practice.projects.R;
 import com.practice.projects.database.Definitions;
 import com.practice.projects.database.DefinitionsViewModel;
-import com.practice.projects.save_list.SaveList;
 import com.practice.projects.settings.SettingsActivity;
 
 /*

@@ -14,26 +14,26 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".SelectionActivity"
+            android:name=".activities.SelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".save_list.SaveList"
-            android:parentActivityName=".SelectionActivity"
+            android:name=".activities.SaveList"
+            android:parentActivityName=".activities.SelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".SelectionActivity" />
+            android:parentActivityName=".activities.SelectionActivity" />
         <activity
-            android:name=".QueryResultActivity"
-            android:parentActivityName=".SearchScreenActivity"
+            android:name=".activities.QueryResultActivity"
+            android:parentActivityName=".activities.SearchScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".SearchScreenActivity"
-            android:parentActivityName=".SelectionActivity"
+            android:name=".activities.SearchScreenActivity"
+            android:parentActivityName=".activities.SelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

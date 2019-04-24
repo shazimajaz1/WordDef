@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".save_list.SaveList">
+    tools:context=".activities.SaveList">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/save_list_activity_toolbar"

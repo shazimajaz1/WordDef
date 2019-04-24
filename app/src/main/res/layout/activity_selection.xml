@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        tools:context=".SelectionActivity">
+        tools:context=".activities.SelectionActivity">
 
         <Button
             android:id="@+id/btn_search_screen_select"

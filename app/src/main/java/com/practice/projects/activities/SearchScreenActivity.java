@@ -1,4 +1,4 @@
-package com.practice.projects;
+package com.practice.projects.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
+import com.practice.projects.R;
 import com.practice.projects.api_setup.NetworkUtility;
 
 import org.json.JSONArray;
