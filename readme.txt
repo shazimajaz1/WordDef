@@ -1,4 +1,4 @@
-Webster API user Guideline: 
+Webster API user Guidelines: 
   -This application uses Webster Dictionary API. The API key is avaialable through the developer account.
   -The key limits the user to 1000 queries/day.
   -Current subscription only allows the API to be used for non-commerical purposes. 
